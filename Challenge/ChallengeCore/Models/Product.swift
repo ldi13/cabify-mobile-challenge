@@ -12,6 +12,17 @@ public struct Product {
         case VOUCHER
         case TSHIRT
         case MUG
+        
+        public var priceAfterDiscount: Double {
+            switch self {
+            case .VOUCHER:
+                return 0.0
+            case .TSHIRT:
+                return 19.0
+            default:
+                return 0.0
+            }
+        }
     }
     
     public let code: CodeType
@@ -25,3 +36,4 @@ public struct Product {
         self.regularPrice = regularPrice
     }
 }
+
