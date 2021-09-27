@@ -34,13 +34,16 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .product(id: let id, action: let action):
             struct ApplyDiscountCompletionId: Hashable {}
             return Effect(value: .calculateGlobalPrice)
-                .debounce(id: ApplyDiscountCompletionId(), for: 1, scheduler: environment.mainQueue.animation())
+                .debounce(id: ApplyDiscountCompletionId(), for: 0.1, scheduler: environment.mainQueue.animation())
             
         case .applyDiscount:
             return applyDiscount(on: state.cart)
             
         case .calculateGlobalPrice:
             state.globalPrice = state.cart.reduce(0) { $0 + $1.priceAfterDiscount }
+            return .none
+            
+        case .binding:
             return .none
         }
     }

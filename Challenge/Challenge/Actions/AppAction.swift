@@ -7,10 +7,12 @@
 
 import Foundation
 import ChallengeCore
+import ComposableArchitecture
 
-enum AppAction {
+enum AppAction: BindableAction {
     case addProductToCart(Int)
     case product(id: Product.ID, action: ProductAction)
     case applyDiscount
     case calculateGlobalPrice
+    case binding(BindingAction<AppState>)
 }

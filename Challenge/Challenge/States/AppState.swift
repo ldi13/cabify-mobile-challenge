@@ -13,7 +13,7 @@ import ChallengeCore
 struct AppState: Equatable {
     let referenceProducts: IdentifiedArrayOf<Product> = .mock
     var cart: IdentifiedArrayOf<Product> = []
-    var globalPrice: Double = 0.0
+    @BindableState var globalPrice: Double = 0.0
 }
 
 extension IdentifiedArray where ID == Product.ID, Element == Product {

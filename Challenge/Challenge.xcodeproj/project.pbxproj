@@ -10,7 +10,7 @@
 		F652BB5E2701FE1800521696 /* ProductReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652BB5D2701FE1700521696 /* ProductReducer.swift */; };
 		F652BB602701FE3800521696 /* ProductEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652BB5F2701FE3800521696 /* ProductEnvironment.swift */; };
 		F6750B1D26FA77A80072BD57 /* ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B1C26FA77A80072BD57 /* ChallengeApp.swift */; };
-		F6750B1F26FA77A80072BD57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B1E26FA77A80072BD57 /* ContentView.swift */; };
+		F6750B1F26FA77A80072BD57 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B1E26FA77A80072BD57 /* AppView.swift */; };
 		F6750B2126FA77AA0072BD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6750B2026FA77AA0072BD57 /* Assets.xcassets */; };
 		F6750B2426FA77AA0072BD57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6750B2326FA77AA0072BD57 /* Preview Assets.xcassets */; };
 		F6750B2E26FA77AB0072BD57 /* ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B2D26FA77AB0072BD57 /* ChallengeTests.swift */; };
@@ -89,7 +89,7 @@
 		F652BB5F2701FE3800521696 /* ProductEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEnvironment.swift; sourceTree = "<group>"; };
 		F6750B1926FA77A80072BD57 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6750B1C26FA77A80072BD57 /* ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeApp.swift; sourceTree = "<group>"; };
-		F6750B1E26FA77A80072BD57 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F6750B1E26FA77A80072BD57 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		F6750B2026FA77AA0072BD57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6750B2326FA77AA0072BD57 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F6750B2926FA77AB0072BD57 /* ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,7 +284,7 @@
 		F6B539D427012F0C00C866EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F6750B1E26FA77A80072BD57 /* ContentView.swift */,
+				F6750B1E26FA77A80072BD57 /* AppView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 				F6B539D72701383B00C866EF /* AppState.swift in Sources */,
 				F6B539DB2701B16500C866EF /* ProductAction.swift in Sources */,
 				F6B539D92701B0D200C866EF /* AppAction.swift in Sources */,
-				F6750B1F26FA77A80072BD57 /* ContentView.swift in Sources */,
+				F6750B1F26FA77A80072BD57 /* AppView.swift in Sources */,
 				F6750B1D26FA77A80072BD57 /* ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -776,7 +776,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -800,7 +800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
