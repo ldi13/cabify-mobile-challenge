@@ -15,4 +15,5 @@ enum AppAction: BindableAction {
     case applyDiscount
     case calculateGlobalPrice
     case binding(BindingAction<AppState>)
+    case showProductsList
 }

@@ -42,11 +42,21 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .calculateGlobalPrice:
             state.globalPrice = state.cart.reduce(0) { $0 + $1.priceAfterDiscount }
             return .none
+        
+        case .showProductsList:
+            state.isPopoverShown = true
+            return .none
+        
+        case .binding(\.$isPopoverShown):
+            let isPopoverShownBinding = state[keyPath: \.$isPopoverShown].wrappedValue
+            state.isPopoverShown = isPopoverShownBinding
+            return .none
             
         case .binding:
             return .none
         }
     }
+    .binding()
 )
 .debug()
 

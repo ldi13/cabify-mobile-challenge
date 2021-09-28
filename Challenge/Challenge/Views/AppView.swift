@@ -25,7 +25,7 @@ struct AppView: View {
                 .padding()
                 .font(.title2)
             Spacer()
-            Button(action: { self.viewStore.send(.addProductToCart(0)) }) {
+            Button(action: { self.viewStore.send(.showProductsList) }) {
                 Text("Add Product")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: 50)
@@ -33,6 +33,9 @@ struct AppView: View {
             .background(.purple)
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0.1, trailing: 15))
+        .popover(isPresented: self.viewStore.binding(\.$isPopoverShown)) {
+            ProductsListView()
+        }
     }
 }
 

@@ -14,6 +14,7 @@ struct AppState: Equatable {
     let referenceProducts: IdentifiedArrayOf<Product> = .mock
     var cart: IdentifiedArrayOf<Product> = []
     @BindableState var globalPrice: Double = 0.0
+    @BindableState var isPopoverShown: Bool = false
 }
 
 extension IdentifiedArray where ID == Product.ID, Element == Product {
