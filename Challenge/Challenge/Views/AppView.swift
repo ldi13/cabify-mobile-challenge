@@ -9,13 +9,12 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AppView: View {
-    
     let store: Store<AppState, AppAction>
-    @ObservedObject var viewStore: ViewStore<AppState, AppAction>
+    @ObservedObject var viewStore: ViewStore<ViewState, ViewAction>
     
     init(store: Store<AppState, AppAction>) {
         self.store = store
-        self.viewStore = ViewStore(self.store)
+        self.viewStore = ViewStore(self.store.scope(state: \.view, action: AppAction.view))
     }
     
     var body: some View {
@@ -25,7 +24,7 @@ struct AppView: View {
                 .padding()
                 .font(.title2)
             Spacer()
-            Button(action: { self.viewStore.send(.showProductsList) }) {
+            Button(action: { self.viewStore.send(.addProductButtonTapped) }) {
                 Text("Add Product")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: 50)
@@ -39,6 +38,18 @@ struct AppView: View {
     }
 }
 
+extension AppView {
+    struct ViewState: Equatable {
+        @BindableState var globalPrice: Double
+        @BindableState var isPopoverShown: Bool
+    }
+    
+    enum ViewAction: BindableAction {
+        case addProductButtonTapped
+        case binding(BindingAction<ViewState>)
+    }
+}
+                                   
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         AppView(
@@ -53,3 +64,5 @@ struct ContentView_Previews: PreviewProvider {
         )
     }
 }
+
+

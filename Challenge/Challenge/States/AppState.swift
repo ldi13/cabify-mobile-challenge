@@ -17,6 +17,16 @@ struct AppState: Equatable {
     @BindableState var isPopoverShown: Bool = false
 }
 
+extension AppState {
+    var view: AppView.ViewState {
+        get { .init(globalPrice: self.globalPrice, isPopoverShown: self.isPopoverShown) }
+        set {
+            self.isPopoverShown = newValue.isPopoverShown
+            self.globalPrice = newValue.globalPrice
+        }
+    }
+}
+
 extension IdentifiedArray where ID == Product.ID, Element == Product {
     static let mock: Self = [
         Product(

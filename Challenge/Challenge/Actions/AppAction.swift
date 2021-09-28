@@ -17,3 +17,18 @@ enum AppAction: BindableAction {
     case binding(BindingAction<AppState>)
     case showProductsList
 }
+
+extension AppAction {
+    static func view(_ viewAction: AppView.ViewAction) -> Self {
+        switch viewAction {
+        case .binding(let action):
+            // transform view binding actions into app binding actions
+            return .binding(action.pullback(\.view))
+            
+        case .addProductButtonTapped:
+            // route `ViewAction.addProductButtonTapped` to `AppAction.showProductsList`
+            return .showProductsList
+        }
+    }
+}
+
