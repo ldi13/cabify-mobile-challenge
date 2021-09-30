@@ -30,10 +30,4 @@ extension ProductListView {
     }
 }
 
-//struct ProductListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductListView()
-//    }
-//}
-
 

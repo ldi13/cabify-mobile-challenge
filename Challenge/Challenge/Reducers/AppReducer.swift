@@ -50,6 +50,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             
         case .calculateTotalPrice:
             state.totalPrice = state.cart.reduce(0) { $0 + $1.priceAfterDiscount }
+            state.cartItemsCount = state.cart.count
             return .none
         
         case .showProductList:

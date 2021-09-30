@@ -38,10 +38,23 @@ struct AppView: View {
             }
             .navigationBarItems(
                 trailing:
-                    Button(action: {}) {
-                        Image(systemName: "cart").imageScale(.large)
+                    ZStack(alignment: .topTrailing) {
+                        Button(action: {}) {
+                            Image(systemName: "cart").imageScale(.large)
+                        }
+                        .foregroundColor(.purple)
+                        
+                        ZStack {
+                            Circle()
+                              .foregroundColor(.red)
+                            Text("\(viewStore.state.cartItemsCount)")
+                                .foregroundColor(.white)
+                                .font(Font.system(size: 12))
+                        }
+                        .frame(width: 16, height: 16)
+                        .offset(x: 7, y: 0)
+                        .opacity(self.viewStore.state.cartItemsCount == 0 ? 0 : 1)
                     }
-                    .foregroundColor(.purple)
             )
         }
     }
@@ -51,6 +64,7 @@ extension AppView {
     struct ViewState: Equatable {
         @BindableState var globalPrice: Double
         @BindableState var isPopoverShown: Bool
+        @BindableState var cartItemsCount: Int
     }
     
     enum ViewAction: BindableAction {

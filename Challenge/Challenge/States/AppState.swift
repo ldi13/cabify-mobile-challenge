@@ -15,14 +15,16 @@ struct AppState: Equatable {
     var cart: IdentifiedArrayOf<Product> = []
     @BindableState var totalPrice: Double = 0.0
     @BindableState var isPopoverShown: Bool = false
+    @BindableState var cartItemsCount: Int = 0
 }
 
 extension AppState {
     var view: AppView.ViewState {
-        get { .init(globalPrice: self.totalPrice, isPopoverShown: self.isPopoverShown) }
+        get { .init(globalPrice: self.totalPrice, isPopoverShown: self.isPopoverShown, cartItemsCount: self.cartItemsCount) }
         set {
             self.isPopoverShown = newValue.isPopoverShown
             self.totalPrice = newValue.globalPrice
+            self.cartItemsCount = newValue.cartItemsCount
         }
     }
     
