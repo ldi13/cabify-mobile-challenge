@@ -1,21 +1,27 @@
 import Foundation
 import ComposableArchitecture
+import SwiftUI
+import PlaygroundSupport
 
-let store: Store<AppState, AppAction> = Store(
-    initialState: AppState(),
-    reducer: appReducer,
-    environment: AppEnvironment(
-      mainQueue: .main,
-      uuid: UUID.init
-    )
-)
+struct ContentView: View {
+    @State private var score = 0
 
-let viewStore: ViewStore<AppState, AppAction> = ViewStore(store)
+    var body: some View {
+        NavigationView {
+            Text("Score: \(score)")
+                .navigationTitle("Navigation")
+                .navigationBarItems(
+                    trailing:
+                        Button(action: { self.score += 1 }) {
+                            Image(systemName: "cart").imageScale(.large)
+                        }
+                        .foregroundColor(.purple)
+                )
+        }
+    }
+}
 
-viewStore.send(.addProductToCart(0))
-viewStore.send(.addProductToCart(1))
-viewStore.send(.addProductToCart(1))
-viewStore.send(.addProductToCart(1))
+PlaygroundPage.current.setLiveView(ContentView())
 
 
 

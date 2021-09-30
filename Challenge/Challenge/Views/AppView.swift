@@ -18,22 +18,31 @@ struct AppView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Global Price: \(String(format: "%.2f", self.viewStore.globalPrice)) €")
-                .padding()
-                .font(.title2)
-            Spacer()
-            Button(action: { self.viewStore.send(.addProductButtonTapped) }) {
-                Text("Add Product")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 50)
+        NavigationView {
+            VStack {
+                Spacer()
+                Text("Total Price: \(String(format: "%.2f", self.viewStore.globalPrice)) €")
+                    .padding()
+                    .font(.title2)
+                Spacer()
+                Button(action: { self.viewStore.send(.addProductButtonTapped) }) {
+                    Text("Add Product")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                }
+                .background(.purple)
             }
-            .background(.purple)
-        }
-        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0.1, trailing: 15))
-        .popover(isPresented: self.viewStore.binding(\.$isPopoverShown)) {
-            ProductsListView()
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0.1, trailing: 15))
+            .popover(isPresented: self.viewStore.binding(\.$isPopoverShown)) {
+                ProductListView(store: self.store.scope(state: \.productListView, action: AppAction.productListView))
+            }
+            .navigationBarItems(
+                trailing:
+                    Button(action: {}) {
+                        Image(systemName: "cart").imageScale(.large)
+                    }
+                    .foregroundColor(.purple)
+            )
         }
     }
 }

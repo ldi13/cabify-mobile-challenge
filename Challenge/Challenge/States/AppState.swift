@@ -11,19 +11,24 @@ import IdentifiedCollections
 import ChallengeCore
 
 struct AppState: Equatable {
-    let referenceProducts: IdentifiedArrayOf<Product> = .mock
+    var referenceProducts: IdentifiedArrayOf<Product> = .mock
     var cart: IdentifiedArrayOf<Product> = []
-    @BindableState var globalPrice: Double = 0.0
+    @BindableState var totalPrice: Double = 0.0
     @BindableState var isPopoverShown: Bool = false
 }
 
 extension AppState {
     var view: AppView.ViewState {
-        get { .init(globalPrice: self.globalPrice, isPopoverShown: self.isPopoverShown) }
+        get { .init(globalPrice: self.totalPrice, isPopoverShown: self.isPopoverShown) }
         set {
             self.isPopoverShown = newValue.isPopoverShown
-            self.globalPrice = newValue.globalPrice
+            self.totalPrice = newValue.globalPrice
         }
+    }
+    
+    var productListView: ProductListView.ViewState {
+        get { .init(referenceProducts: self.referenceProducts) }
+        set { self.referenceProducts = newValue.referenceProducts }
     }
 }
 

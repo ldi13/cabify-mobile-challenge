@@ -11,14 +11,19 @@ import ComposableArchitecture
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     productReducer.forEach(
-        state: \.cart,
+        state: \.referenceProducts,
         action: /AppAction.product(id:action:),
         environment: { _ in ProductEnvironment() }
     ),
+    cartReducer.forEach(
+        state: \.cart,
+        action: /AppAction.cart(productId:action:),
+        environment: { _ in CartEnvironment() }
+    ),
     Reducer { state, action, environment in
         switch action {
-        case .addProductToCart(let index):
-            let productToAdd = state.referenceProducts[index]
+        case .addProductToCart(productId: let productId):
+            guard let productToAdd = state.referenceProducts.first(where: { $0.id == productId }) else { return .none }
             
             state.cart.append(
                 Product(
@@ -31,19 +36,23 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             
             return Effect(value: .applyDiscount)
             
-        case .product(id: let id, action: let action):
+        case .cart(productId: let productId, action: .applyDiscount):
             struct ApplyDiscountCompletionId: Hashable {}
-            return Effect(value: .calculateGlobalPrice)
+            return Effect(value: .calculateTotalPrice)
                 .debounce(id: ApplyDiscountCompletionId(), for: 0.1, scheduler: environment.mainQueue.animation())
+        
+        case .product(id: let id, action: .productSelected):
+            state.isPopoverShown = false
+            return Effect(value: .addProductToCart(productId: id))
             
         case .applyDiscount:
             return applyDiscount(on: state.cart)
             
-        case .calculateGlobalPrice:
-            state.globalPrice = state.cart.reduce(0) { $0 + $1.priceAfterDiscount }
+        case .calculateTotalPrice:
+            state.totalPrice = state.cart.reduce(0) { $0 + $1.priceAfterDiscount }
             return .none
         
-        case .showProductsList:
+        case .showProductList:
             state.isPopoverShown = true
             return .none
         
@@ -93,9 +102,9 @@ private func applyDiscount(on products: IdentifiedArrayOf<Product>) -> Effect<Ap
 }
 
 private func buildEffectWith(applyDiscount: Bool, product: Product) -> Effect<AppAction, Never> {
-    let localAction: ProductAction = .applyDiscount(applyDiscount)
-    let globaleAction: AppAction  = .product(
-        id: product.id,
+    let localAction: CartAction = .applyDiscount(applyDiscount)
+    let globaleAction: AppAction  = .cart(
+        productId: product.id,
         action: localAction
     )
     
