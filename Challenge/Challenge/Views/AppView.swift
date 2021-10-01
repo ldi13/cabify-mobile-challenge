@@ -56,7 +56,7 @@ struct AppView: View {
                         .opacity(self.viewStore.state.cartItemsCount == 0 ? 0 : 1)
                     }
             )
-        }
+        }.onAppear { self.viewStore.send(.onAppear) }
     }
 }
 
@@ -68,6 +68,7 @@ extension AppView {
     }
     
     enum ViewAction: BindableAction {
+        case onAppear
         case addProductButtonTapped
         case binding(BindingAction<ViewState>)
     }
@@ -81,7 +82,8 @@ struct ContentView_Previews: PreviewProvider {
                 reducer: appReducer,
                 environment: AppEnvironment(
                     mainQueue: .main,
-                    uuid: UUID.init
+                    uuid: UUID.init,
+                    productClient: .live
                 )
             )
         )

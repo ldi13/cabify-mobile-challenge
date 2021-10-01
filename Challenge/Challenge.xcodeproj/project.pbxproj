@@ -10,6 +10,8 @@
 		F652BB5E2701FE1800521696 /* CartReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652BB5D2701FE1700521696 /* CartReducer.swift */; };
 		F652BB602701FE3800521696 /* CartEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652BB5F2701FE3800521696 /* CartEnvironment.swift */; };
 		F65BFA2427031B4E002D336C /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65BFA2327031B4E002D336C /* ProductListView.swift */; };
+		F66B35D92705ED88005623C5 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B35D82705ED88005623C5 /* ProductResponse.swift */; };
+		F66B35DB2705EE13005623C5 /* ProductCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B35DA2705EE13005623C5 /* ProductCode.swift */; };
 		F6750B1D26FA77A80072BD57 /* ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B1C26FA77A80072BD57 /* ChallengeApp.swift */; };
 		F6750B1F26FA77A80072BD57 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B1E26FA77A80072BD57 /* AppView.swift */; };
 		F6750B2126FA77AA0072BD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6750B2026FA77AA0072BD57 /* Assets.xcassets */; };
@@ -23,6 +25,7 @@
 		F6750B5E26FB2CD90072BD57 /* ChallengeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F6750B4E26FB2CD90072BD57 /* ChallengeCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6750B6126FB2CD90072BD57 /* ChallengeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */; };
 		F6750B6226FB2CD90072BD57 /* ChallengeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F69ED1902705FA5400755DB4 /* ProductClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B35D52705E8CE005623C5 /* ProductClient.swift */; };
 		F6B539C826FB8F8F00C866EF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B539C726FB8F8F00C866EF /* Product.swift */; };
 		F6B539CC270129EB00C866EF /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B539CB270129EA00C866EF /* Discount.swift */; };
 		F6B539CF27012E7B00C866EF /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = F6B539CE27012E7B00C866EF /* ComposableArchitecture */; };
@@ -93,6 +96,9 @@
 		F652BB5D2701FE1700521696 /* CartReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartReducer.swift; sourceTree = "<group>"; };
 		F652BB5F2701FE3800521696 /* CartEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEnvironment.swift; sourceTree = "<group>"; };
 		F65BFA2327031B4E002D336C /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		F66B35D52705E8CE005623C5 /* ProductClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClient.swift; sourceTree = "<group>"; };
+		F66B35D82705ED88005623C5 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
+		F66B35DA2705EE13005623C5 /* ProductCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCode.swift; sourceTree = "<group>"; };
 		F6750B1926FA77A80072BD57 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6750B1C26FA77A80072BD57 /* ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeApp.swift; sourceTree = "<group>"; };
 		F6750B1E26FA77A80072BD57 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -164,6 +170,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F66B35D42705E893005623C5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F66B35D52705E8CE005623C5 /* ProductClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F66B35D72705ED72005623C5 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				F66B35D82705ED88005623C5 /* ProductResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 		F6750B1026FA77A80072BD57 = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				F6B539C626FB8F5300C866EF /* Models */,
+				F66B35D72705ED72005623C5 /* Responses */,
 				F6750B4E26FB2CD90072BD57 /* ChallengeCore.h */,
 				F6750B4F26FB2CD90072BD57 /* ChallengeCore.docc */,
 			);
@@ -254,6 +277,7 @@
 			children = (
 				F6B539C726FB8F8F00C866EF /* Product.swift */,
 				F6B539CB270129EA00C866EF /* Discount.swift */,
+				F66B35DA2705EE13005623C5 /* ProductCode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +330,7 @@
 		F6B539D527012F2B00C866EF /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				F66B35D42705E893005623C5 /* Network */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -539,6 +564,7 @@
 				F652BB5E2701FE1800521696 /* CartReducer.swift in Sources */,
 				F6D835E327046ED300C37A42 /* ProductReducer.swift in Sources */,
 				F6B539D72701383B00C866EF /* AppState.swift in Sources */,
+				F69ED1902705FA5400755DB4 /* ProductClient.swift in Sources */,
 				F6B539DB2701B16500C866EF /* CartAction.swift in Sources */,
 				F6B539D92701B0D200C866EF /* AppAction.swift in Sources */,
 				F6750B1F26FA77A80072BD57 /* AppView.swift in Sources */,
@@ -567,7 +593,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66B35DB2705EE13005623C5 /* ProductCode.swift in Sources */,
 				F6750B5026FB2CD90072BD57 /* ChallengeCore.docc in Sources */,
+				F66B35D92705ED88005623C5 /* ProductResponse.swift in Sources */,
 				F6B539C826FB8F8F00C866EF /* Product.swift in Sources */,
 				F6B539CC270129EB00C866EF /* Discount.swift in Sources */,
 			);

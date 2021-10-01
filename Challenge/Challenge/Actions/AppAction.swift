@@ -17,6 +17,8 @@ enum AppAction: BindableAction {
     case calculateTotalPrice
     case binding(BindingAction<AppState>)
     case showProductList
+    case fetchReferenceProducts
+    case referenceProductsResponse(Result<[String: [ProductResponse]], Error>)
 }
 
 extension AppAction {
@@ -29,6 +31,9 @@ extension AppAction {
         case .addProductButtonTapped:
             // route `ViewAction.addProductButtonTapped` to `AppAction.showProductList`
             return .showProductList
+        
+        case .onAppear:
+            return .fetchReferenceProducts
         }
     }
     

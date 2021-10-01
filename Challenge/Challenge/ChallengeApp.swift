@@ -18,7 +18,8 @@ struct ChallengeApp: App {
                     reducer: appReducer,
                     environment: AppEnvironment(
                         mainQueue: .main,
-                        uuid: UUID.init
+                        uuid: UUID.init,
+                        productClient: .live
                     )
                 )
             )

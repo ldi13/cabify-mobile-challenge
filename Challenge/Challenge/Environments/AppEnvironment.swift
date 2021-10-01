@@ -8,7 +8,8 @@
 import Foundation
 import ComposableArchitecture
 
-public struct AppEnvironment {
-  public var mainQueue: AnySchedulerOf<DispatchQueue>
-  public var uuid: () -> UUID
+struct AppEnvironment {
+    let mainQueue: AnySchedulerOf<DispatchQueue>
+    let uuid: () -> UUID
+    let productClient: ProductClient
 }

@@ -8,12 +8,6 @@
 import Foundation
 
 public struct Product: Equatable, Identifiable {
-    public enum CodeType: String {
-        case voucher
-        case tshirt
-        case mug
-    }
-    
     public var discount: Discount {
         switch self.code {
         case .voucher:
@@ -39,12 +33,12 @@ public struct Product: Equatable, Identifiable {
     }
     
     public let id: UUID
-    public let code: CodeType
+    public let code: ProductCode
     public let name: String
     public let regularPrice: Double
     public var hasDiscount: Bool
     
-    public init(id: UUID, code: CodeType, name: String, regularPrice: Double, hasDiscount: Bool = false) {
+    public init(id: UUID, code: ProductCode, name: String, regularPrice: Double, hasDiscount: Bool = false) {
         self.id = id
         self.code = code
         self.name = name

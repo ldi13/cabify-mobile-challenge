@@ -11,7 +11,7 @@ import IdentifiedCollections
 import ChallengeCore
 
 struct AppState: Equatable {
-    var referenceProducts: IdentifiedArrayOf<Product> = .mock
+    var referenceProducts: IdentifiedArrayOf<Product> = []
     var cart: IdentifiedArrayOf<Product> = []
     @BindableState var totalPrice: Double = 0.0
     @BindableState var isPopoverShown: Bool = false

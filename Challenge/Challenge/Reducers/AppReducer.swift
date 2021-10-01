@@ -8,6 +8,7 @@
 import Foundation
 import ChallengeCore
 import ComposableArchitecture
+import IdentifiedCollections
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     productReducer.forEach(
@@ -22,6 +23,37 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
     ),
     Reducer { state, action, environment in
         switch action {
+        case .fetchReferenceProducts:
+            return environment.productClient.fetch()
+                .receive(on: environment.mainQueue)
+                .catchToEffect(AppAction.referenceProductsResponse)
+            
+        case .referenceProductsResponse(.success(let response)):
+            var referenceProducts: IdentifiedArrayOf<Product> = []
+            guard let products = response.values.first else {
+                // TODO: display error message
+                return .none
+            }
+             
+            products.forEach {
+                referenceProducts.append(
+                    Product(
+                        id: environment.uuid(),
+                        code: $0.code,
+                        name: $0.name,
+                        regularPrice: $0.price
+                    )
+                )
+            }
+            
+            state.referenceProducts = referenceProducts
+            return .none
+            
+        case .referenceProductsResponse(.failure(let error)):
+            debugPrint(error)
+            // TODO: display error message
+            return .none
+                
         case .addProductToCart(productId: let productId):
             guard let productToAdd = state.referenceProducts.first(where: { $0.id == productId }) else { return .none }
             
@@ -104,10 +136,10 @@ private func applyDiscount(on products: IdentifiedArrayOf<Product>) -> Effect<Ap
 
 private func buildEffectWith(applyDiscount: Bool, product: Product) -> Effect<AppAction, Never> {
     let localAction: CartAction = .applyDiscount(applyDiscount)
-    let globaleAction: AppAction  = .cart(
+    let globalAction: AppAction  = .cart(
         productId: product.id,
         action: localAction
     )
     
-    return Effect(value: globaleAction)
+    return Effect(value: globalAction)
 }
