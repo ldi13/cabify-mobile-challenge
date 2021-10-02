@@ -26,6 +26,7 @@
 		F6750B6126FB2CD90072BD57 /* ChallengeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */; };
 		F6750B6226FB2CD90072BD57 /* ChallengeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F69ED1902705FA5400755DB4 /* ProductClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B35D52705E8CE005623C5 /* ProductClient.swift */; };
+		F69ED192270754A200755DB4 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69ED191270754A200755DB4 /* LoaderView.swift */; };
 		F6B539C826FB8F8F00C866EF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B539C726FB8F8F00C866EF /* Product.swift */; };
 		F6B539CC270129EB00C866EF /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B539CB270129EA00C866EF /* Discount.swift */; };
 		F6B539CF27012E7B00C866EF /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = F6B539CE27012E7B00C866EF /* ComposableArchitecture */; };
@@ -114,6 +115,7 @@
 		F6750B4F26FB2CD90072BD57 /* ChallengeCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ChallengeCore.docc; sourceTree = "<group>"; };
 		F6750B5526FB2CD90072BD57 /* ChallengeCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6750B5C26FB2CD90072BD57 /* ChallengeCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCoreTests.swift; sourceTree = "<group>"; };
+		F69ED191270754A200755DB4 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		F6B539C726FB8F8F00C866EF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F6B539CB270129EA00C866EF /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		F6B539D62701383B00C866EF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				F6750B1E26FA77A80072BD57 /* AppView.swift */,
 				F65BFA2327031B4E002D336C /* ProductListView.swift */,
 				F6D835EA270517EA00C37A42 /* ProductView.swift */,
+				F69ED191270754A200755DB4 /* LoaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				F652BB5E2701FE1800521696 /* CartReducer.swift in Sources */,
 				F6D835E327046ED300C37A42 /* ProductReducer.swift in Sources */,
 				F6B539D72701383B00C866EF /* AppState.swift in Sources */,
+				F69ED192270754A200755DB4 /* LoaderView.swift in Sources */,
 				F69ED1902705FA5400755DB4 /* ProductClient.swift in Sources */,
 				F6B539DB2701B16500C866EF /* CartAction.swift in Sources */,
 				F6B539D92701B0D200C866EF /* AppAction.swift in Sources */,

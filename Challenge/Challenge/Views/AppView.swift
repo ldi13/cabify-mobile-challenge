@@ -26,9 +26,13 @@ struct AppView: View {
                     .font(.title2)
                 Spacer()
                 Button(action: { self.viewStore.send(.addProductButtonTapped) }) {
-                    Text("Add Product")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                    HStack {
+                        Text("Add Product")
+                            .foregroundColor(.white)
+                        // TODO: Fix loaderView animation
+//                        LoaderView()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 50)
                 }
                 .background(.purple)
             }
@@ -56,7 +60,8 @@ struct AppView: View {
                         .opacity(self.viewStore.state.cartItemsCount == 0 ? 0 : 1)
                     }
             )
-        }.onAppear { self.viewStore.send(.onAppear) }
+        }
+        .onAppear { self.viewStore.send(.onAppear) }
     }
 }
 
