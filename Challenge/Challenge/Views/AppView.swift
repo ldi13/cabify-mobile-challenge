@@ -48,16 +48,8 @@ struct AppView: View {
                         }
                         .foregroundColor(.purple)
                         
-                        ZStack {
-                            Circle()
-                              .foregroundColor(.red)
-                            Text("\(viewStore.state.cartItemsCount)")
-                                .foregroundColor(.white)
-                                .font(Font.system(size: 12))
-                        }
-                        .frame(width: 16, height: 16)
-                        .offset(x: 7, y: 0)
-                        .opacity(self.viewStore.state.cartItemsCount == 0 ? 0 : 1)
+                        BadgeView(badgeCount: self.viewStore.cartItemsCount)
+                            .offset(x: 7, y: 0)
                     }
             )
         }
