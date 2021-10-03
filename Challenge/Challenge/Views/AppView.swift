@@ -44,7 +44,10 @@ struct AppView: View {
                 trailing:
                     ZStack(alignment: .topTrailing) {
                         Button(action: {}) {
-                            Image(systemName: "cart").imageScale(.large)
+                            NavigationLink(destination: CartDetailsView()) {
+                                Image(systemName: "cart").imageScale(.large)
+                            }
+                            .navigationTitle("")
                         }
                         .foregroundColor(.purple)
                         
