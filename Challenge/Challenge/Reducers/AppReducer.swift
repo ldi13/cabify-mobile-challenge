@@ -88,6 +88,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .showProductList:
             state.isPopoverShown = true
             return .none
+            
+        case .cartItem:
+            return .none
         
         case .binding(\.$isPopoverShown):
             let isPopoverShownBinding = state[keyPath: \.$isPopoverShown].wrappedValue

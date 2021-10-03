@@ -20,10 +20,10 @@ struct AppState: Equatable {
 
 extension AppState {
     var view: AppView.ViewState {
-        get { .init(globalPrice: self.totalPrice, isPopoverShown: self.isPopoverShown, cartItemsCount: self.cartItemsCount) }
+        get { .init(totalPrice: self.totalPrice, isPopoverShown: self.isPopoverShown, cartItemsCount: self.cartItemsCount) }
         set {
             self.isPopoverShown = newValue.isPopoverShown
-            self.totalPrice = newValue.globalPrice
+            self.totalPrice = newValue.totalPrice
             self.cartItemsCount = newValue.cartItemsCount
         }
     }
@@ -31,6 +31,14 @@ extension AppState {
     var productListView: ProductListView.ViewState {
         get { .init(referenceProducts: self.referenceProducts) }
         set { self.referenceProducts = newValue.referenceProducts }
+    }
+    
+    var cartDetailsView: CartDetailsView.ViewState {
+        get { .init(cart: self.cart, totalPrice: self.totalPrice) }
+        set {
+            self.cart = newValue.cart
+            self.totalPrice = newValue.totalPrice
+        }
     }
 }
 

@@ -21,7 +21,7 @@ struct AppView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("Total Price: \(String(format: "%.2f", self.viewStore.globalPrice)) €")
+                Text("Total Price: \(String(format: "%.2f", self.viewStore.totalPrice)) €")
                     .padding()
                     .font(.title2)
                 Spacer()
@@ -44,7 +44,7 @@ struct AppView: View {
                 trailing:
                     ZStack(alignment: .topTrailing) {
                         Button(action: {}) {
-                            NavigationLink(destination: CartDetailsView()) {
+                            NavigationLink(destination: CartDetailsView(store: self.store.scope(state: \.cartDetailsView, action: AppAction.cartDetailsView))) {
                                 Image(systemName: "cart").imageScale(.large)
                             }
                             .navigationTitle("")
@@ -62,7 +62,7 @@ struct AppView: View {
 
 extension AppView {
     struct ViewState: Equatable {
-        @BindableState var globalPrice: Double
+        @BindableState var totalPrice: Double
         @BindableState var isPopoverShown: Bool
         @BindableState var cartItemsCount: Int
     }

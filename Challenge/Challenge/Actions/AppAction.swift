@@ -19,6 +19,7 @@ enum AppAction: BindableAction {
     case showProductList
     case fetchReferenceProducts
     case referenceProductsResponse(Result<[String: [ProductResponse]], Error>)
+    case cartItem(productId: Product.ID, action: CartAction)
 }
 
 extension AppAction {
@@ -44,5 +45,14 @@ extension AppAction {
             return .product(id: id, action: action)
         }
     }
+    
+    static func cartDetailsView(_ viewAction: CartDetailsView.ViewAction) -> Self {
+        switch viewAction {
+        case .cartItem(productId: let productId, action: let action):
+            // route `ViewAction.cartItem(productId:action:)` to `AppAction.cartItem(productId:action:)`
+            return .cartItem(productId: productId, action: action)
+        }
+    }
+
 }
 

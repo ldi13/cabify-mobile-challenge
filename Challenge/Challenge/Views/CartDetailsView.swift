@@ -6,17 +6,36 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+import ChallengeCore
 
 struct CartDetailsView: View {
+    let store: Store<ViewState, ViewAction>
+    
     var body: some View {
-        NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WithViewStore(self.store) { viewStore in
+            List {
+                ForEachStore(self.store.scope(state: \.cart, action: ViewAction.cartItem(productId:action:)),
+                content: CartItemView.init(store:))
+                HStack {
+                    Text("Total Price")
+                        .fontWeight(.semibold)
+                    Spacer()
+                    Text("\(String(format: "%.2f", viewStore.totalPrice)) €")
+                        .fontWeight(.semibold)
+                }
+            }
         }
     }
 }
 
-struct CartDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartDetailsView()
+extension CartDetailsView {
+    struct ViewState: Equatable {
+        let cart: IdentifiedArrayOf<Product>
+        let totalPrice: Double
+    }
+    
+    enum ViewAction {
+        case cartItem(productId: Product.ID, action: CartAction)
     }
 }
