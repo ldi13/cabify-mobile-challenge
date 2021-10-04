@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum CartAction {
+enum CartAction: Equatable {
     case applyDiscount(Bool)
 }

@@ -9,7 +9,7 @@ import Foundation
 import ChallengeCore
 import ComposableArchitecture
 
-enum AppAction: BindableAction {
+enum AppAction: BindableAction, Equatable {
     case addProductToCart(productId: Product.ID)
     case product(id: Product.ID, action: ProductAction)
     case cart(productId: Product.ID, action: CartAction)
@@ -18,8 +18,9 @@ enum AppAction: BindableAction {
     case binding(BindingAction<AppState>)
     case showProductList
     case fetchReferenceProducts
-    case referenceProductsResponse(Result<[String: [ProductResponse]], Error>)
+    case referenceProductsResponse(Result<[ProductResponse], Never>)
     case cartItem(productId: Product.ID, action: CartAction)
+    case showAlert
 }
 
 extension AppAction {

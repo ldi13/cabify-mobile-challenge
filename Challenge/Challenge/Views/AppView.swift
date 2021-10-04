@@ -40,6 +40,11 @@ struct AppView: View {
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0.1, trailing: 15))
+            .alert("ERROR", isPresented: self.viewStore.binding(\.$isAlertShown), actions: {
+                Button("OK") {}
+            }, message: {
+                Text("An error occured when fetching products.")
+            })
             .navigationBarItems(
                 trailing:
                     ZStack(alignment: .topTrailing) {
@@ -65,6 +70,7 @@ extension AppView {
         @BindableState var totalPrice: Double
         @BindableState var isPopoverShown: Bool
         @BindableState var cartItemsCount: Int
+        @BindableState var isAlertShown: Bool
     }
     
     enum ViewAction: BindableAction {

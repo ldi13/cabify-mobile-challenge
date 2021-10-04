@@ -15,17 +15,41 @@ private enum ProductClientConfiguration {
 }
 
 struct ProductClient {
-    var fetch: () -> Effect<[String: [ProductResponse]], Error>
+    var fetch: () -> Effect<[ProductResponse], Never>
 }
 
 extension ProductClient {
     static let live = Self(
       fetch: {
           Effect.task {
-              let (data, urlResponse) = try await URLSession.shared.data(from: ProductClientConfiguration.liveURL)
-              let decoder = JSONDecoder()
-              return try decoder.decode([String: [ProductResponse]].self, from: data)
-        }
+              do {
+                  let (data, urlResponse) = try await URLSession.shared.data(from: ProductClientConfiguration.liveURL)
+                  let decoder = JSONDecoder()
+                  let response = try decoder.decode([String: [ProductResponse]].self, from: data)
+                  
+                  guard let products = response.values.first else { return [] }
+                  return products
+              } catch {
+                  return []
+              }
+          }
       }
     )
+    
+    static let testFetchOK = Self(
+      fetch: {
+          Effect.task {
+              return .mock
+          }
+      }
+    )
+    
+    static let testFetchKO = Self(
+      fetch: {
+          Effect.task {
+              return []
+          }
+      }
+    )
+
 }

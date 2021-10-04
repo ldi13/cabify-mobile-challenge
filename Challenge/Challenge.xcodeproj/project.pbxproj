@@ -17,8 +17,6 @@
 		F6750B2126FA77AA0072BD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6750B2026FA77AA0072BD57 /* Assets.xcassets */; };
 		F6750B2426FA77AA0072BD57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6750B2326FA77AA0072BD57 /* Preview Assets.xcassets */; };
 		F6750B2E26FA77AB0072BD57 /* ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B2D26FA77AB0072BD57 /* ChallengeTests.swift */; };
-		F6750B3826FA77AB0072BD57 /* ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B3726FA77AB0072BD57 /* ChallengeUITests.swift */; };
-		F6750B3A26FA77AB0072BD57 /* ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B3926FA77AB0072BD57 /* ChallengeUITestsLaunchTests.swift */; };
 		F6750B5026FB2CD90072BD57 /* ChallengeCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = F6750B4F26FB2CD90072BD57 /* ChallengeCore.docc */; };
 		F6750B5626FB2CD90072BD57 /* ChallengeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */; };
 		F6750B5D26FB2CD90072BD57 /* ChallengeCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6750B5C26FB2CD90072BD57 /* ChallengeCoreTests.swift */; };
@@ -46,13 +44,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		F6750B2A26FA77AB0072BD57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F6750B1126FA77A80072BD57 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6750B1826FA77A80072BD57;
-			remoteInfo = Challenge;
-		};
-		F6750B3426FA77AB0072BD57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F6750B1126FA77A80072BD57 /* Project object */;
 			proxyType = 1;
@@ -110,7 +101,6 @@
 		F6750B2326FA77AA0072BD57 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F6750B2926FA77AB0072BD57 /* ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6750B2D26FA77AB0072BD57 /* ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTests.swift; sourceTree = "<group>"; };
-		F6750B3326FA77AB0072BD57 /* ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6750B3726FA77AB0072BD57 /* ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeUITests.swift; sourceTree = "<group>"; };
 		F6750B3926FA77AB0072BD57 /* ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,13 +137,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F6750B2626FA77AB0072BD57 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F6750B3026FA77AB0072BD57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -212,7 +195,6 @@
 			children = (
 				F6750B1926FA77A80072BD57 /* Challenge.app */,
 				F6750B2926FA77AB0072BD57 /* ChallengeTests.xctest */,
-				F6750B3326FA77AB0072BD57 /* ChallengeUITests.xctest */,
 				F6750B4C26FB2CD90072BD57 /* ChallengeCore.framework */,
 				F6750B5526FB2CD90072BD57 /* ChallengeCoreTests.xctest */,
 			);
@@ -411,24 +393,6 @@
 			productReference = F6750B2926FA77AB0072BD57 /* ChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F6750B3226FA77AB0072BD57 /* ChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F6750B4326FA77AB0072BD57 /* Build configuration list for PBXNativeTarget "ChallengeUITests" */;
-			buildPhases = (
-				F6750B2F26FA77AB0072BD57 /* Sources */,
-				F6750B3026FA77AB0072BD57 /* Frameworks */,
-				F6750B3126FA77AB0072BD57 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F6750B3526FA77AB0072BD57 /* PBXTargetDependency */,
-			);
-			name = ChallengeUITests;
-			productName = ChallengeUITests;
-			productReference = F6750B3326FA77AB0072BD57 /* ChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		F6750B4B26FB2CD90072BD57 /* ChallengeCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6750B6326FB2CD90072BD57 /* Build configuration list for PBXNativeTarget "ChallengeCore" */;
@@ -483,10 +447,6 @@
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = F6750B1826FA77A80072BD57;
 					};
-					F6750B3226FA77AB0072BD57 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = F6750B1826FA77A80072BD57;
-					};
 					F6750B4B26FB2CD90072BD57 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -514,7 +474,6 @@
 			targets = (
 				F6750B1826FA77A80072BD57 /* Challenge */,
 				F6750B2826FA77AB0072BD57 /* ChallengeTests */,
-				F6750B3226FA77AB0072BD57 /* ChallengeUITests */,
 				F6750B4B26FB2CD90072BD57 /* ChallengeCore */,
 				F6750B5426FB2CD90072BD57 /* ChallengeCoreTests */,
 			);
@@ -532,13 +491,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F6750B2726FA77AB0072BD57 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F6750B3126FA77AB0072BD57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,15 +548,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6750B2F26FA77AB0072BD57 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F6750B3A26FA77AB0072BD57 /* ChallengeUITestsLaunchTests.swift in Sources */,
-				F6750B3826FA77AB0072BD57 /* ChallengeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F6750B4826FB2CD90072BD57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,11 +575,6 @@
 			isa = PBXTargetDependency;
 			target = F6750B1826FA77A80072BD57 /* Challenge */;
 			targetProxy = F6750B2A26FA77AB0072BD57 /* PBXContainerItemProxy */;
-		};
-		F6750B3526FA77AB0072BD57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F6750B1826FA77A80072BD57 /* Challenge */;
-			targetProxy = F6750B3426FA77AB0072BD57 /* PBXContainerItemProxy */;
 		};
 		F6750B5826FB2CD90072BD57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -880,50 +818,6 @@
 			};
 			name = Release;
 		};
-		F6750B4426FA77AB0072BD57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cabify.ChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Challenge;
-			};
-			name = Debug;
-		};
-		F6750B4526FA77AB0072BD57 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cabify.ChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Challenge;
-			};
-			name = Release;
-		};
 		F6750B6426FB2CD90072BD57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1052,15 +946,6 @@
 			buildConfigurations = (
 				F6750B4126FA77AB0072BD57 /* Debug */,
 				F6750B4226FA77AB0072BD57 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F6750B4326FA77AB0072BD57 /* Build configuration list for PBXNativeTarget "ChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F6750B4426FA77AB0072BD57 /* Debug */,
-				F6750B4526FA77AB0072BD57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

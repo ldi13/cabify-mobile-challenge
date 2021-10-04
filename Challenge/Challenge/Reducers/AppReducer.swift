@@ -28,12 +28,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
                 .receive(on: environment.mainQueue)
                 .catchToEffect(AppAction.referenceProductsResponse)
             
-        case .referenceProductsResponse(.success(let response)):
+        case .referenceProductsResponse(.success(let products)):
             var referenceProducts: IdentifiedArrayOf<Product> = []
-            guard let products = response.values.first else {
-                // TODO: display error message
-                return .none
-            }
+            guard !products.isEmpty else { return Effect(value: .showAlert) }
              
             products.forEach {
                 referenceProducts.append(
@@ -47,11 +44,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
             }
             
             state.referenceProducts = referenceProducts
-            return .none
-            
-        case .referenceProductsResponse(.failure(let error)):
-            debugPrint(error)
-            // TODO: display error message
             return .none
                 
         case .addProductToCart(productId: let productId):
@@ -88,6 +80,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .showProductList:
             state.isPopoverShown = true
             return .none
+        
+        case .showAlert:
+            state.isAlertShown = true
+            return .none
             
         case .cartItem:
             return .none
@@ -95,6 +91,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .combine(
         case .binding(\.$isPopoverShown):
             let isPopoverShownBinding = state[keyPath: \.$isPopoverShown].wrappedValue
             state.isPopoverShown = isPopoverShownBinding
+            return .none
+        
+        case .binding(\.$isAlertShown):
+            let isAlertShown = state[keyPath: \.$isAlertShown].wrappedValue
+            state.isAlertShown = isAlertShown
             return .none
             
         case .binding:
