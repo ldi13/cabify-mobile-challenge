@@ -35,24 +35,24 @@ struct AppView: View {
                     .frame(maxWidth: .infinity, maxHeight: 50)
                 }
                 .background(.purple)
+                .popover(isPresented: self.viewStore.binding(\.$isPopoverShown)){
+                    ProductListView(store: self.store.scope(state: \.productListView, action: AppAction.productListView))
+                }
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0.1, trailing: 15))
-            .popover(isPresented: self.viewStore.binding(\.$isPopoverShown)) {
-                ProductListView(store: self.store.scope(state: \.productListView, action: AppAction.productListView))
-            }
             .navigationBarItems(
                 trailing:
                     ZStack(alignment: .topTrailing) {
-                        Button(action: {}) {
-                            NavigationLink(destination: CartDetailsView(store: self.store.scope(state: \.cartDetailsView, action: AppAction.cartDetailsView))) {
-                                Image(systemName: "cart").imageScale(.large)
-                            }
-                            .navigationTitle("")
+                        NavigationLink(destination: CartDetailsView(store: self.store.scope(state: \.cartDetailsView, action: AppAction.cartDetailsView))) {
+                            Image(systemName: "cart")
+                                .imageScale(.large)
+                                .frame(width: 44, height: 44)
                         }
                         .foregroundColor(.purple)
+                        .navigationTitle("")
                         
                         BadgeView(badgeCount: self.viewStore.cartItemsCount)
-                            .offset(x: 7, y: 0)
+                            .offset(x: 0, y: 4)
                     }
             )
         }
