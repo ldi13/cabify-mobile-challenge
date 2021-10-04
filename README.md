@@ -1,5 +1,9 @@
 # Cabify Mobile Challenge
 
+## Requirements
+- Install and run it on Xcode 13
+- iOS 15.0 simulator
+
 ## Description
 - Chosen architecture: `Composable Architecture` with SwiftUI: Views holding `Stores`, passing events to `Reducers` in charge of state mutations and throwing `Effects`.
 - All documentation available here: https://www.pointfree.co/collections/composable-architecture
